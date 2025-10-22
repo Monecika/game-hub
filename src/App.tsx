@@ -1,5 +1,5 @@
 import "./App.css";
-import GameGrid from "./components/gameGrid/GameGrid";
+import GameGrid from "./components/games/GameGrid";
 import NavBar from "./components/navBar/NavBar";
 
 function App() {
@@ -13,11 +13,11 @@ function App() {
         </div>
 
         <div className="row">
-          <div className="col-lg-3 d-none d-lg-block text-center py-3">
+          <div className="col-lg-2 d-none d-lg-block text-center py-3">
             Aside
           </div>
 
-          <div className="col-12 col-lg-9 py-3">
+          <div className="col-12 col-lg-10 py-3">
             <GameGrid></GameGrid>
           </div>
         </div>
