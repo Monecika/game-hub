@@ -1,7 +1,15 @@
+import { useEffect, useState } from "react";
 import "./App.css";
 import NavBar from "./components/NavBar";
+import { themeConfig, type Theme } from "./theme";
 
 function App() {
+  const [theme, setTheme] = useState<Theme>(themeConfig.initialColorMode);
+
+  useEffect(() => {
+    document.body.setAttribute("data-bs-theme", theme);
+  }, [theme]);
+
   return (
     <>
       <div className="container-fluid">
