@@ -1,0 +1,5 @@
+body.theme-transition,
+body[data-bs-theme="light"].theme-transition,
+body[data-bs-theme="dark"].theme-transition {
+  transition: background-color 0.5s, color 0.5s;
+}

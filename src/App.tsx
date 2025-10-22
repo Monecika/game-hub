@@ -1,15 +1,8 @@
-import { useEffect, useState } from "react";
 import "./App.css";
-import NavBar from "./components/NavBar";
-import { themeConfig, type Theme } from "./theme";
+import GameGrid from "./components/gameGrid/GameGrid";
+import NavBar from "./components/navBar/NavBar";
 
 function App() {
-  const [theme, setTheme] = useState<Theme>(themeConfig.initialColorMode);
-
-  useEffect(() => {
-    document.body.setAttribute("data-bs-theme", theme);
-  }, [theme]);
-
   return (
     <>
       <div className="container-fluid">
@@ -20,12 +13,12 @@ function App() {
         </div>
 
         <div className="row">
-          <div className="col-lg-3 d-none d-lg-block bg-success text-center py-3">
+          <div className="col-lg-3 d-none d-lg-block text-center py-3">
             Aside
           </div>
 
-          <div className="col-12 col-lg-9 bg-primary text-center py-3 text-white">
-            Main
+          <div className="col-12 col-lg-9 py-3">
+            <GameGrid></GameGrid>
           </div>
         </div>
       </div>
