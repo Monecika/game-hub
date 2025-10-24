@@ -1,0 +1,10 @@
+.genre-img {
+    height: 2.7vw; 
+    width: 2.7vw;
+    min-height: 35px; 
+    min-width: 35px;
+}
+
+.genre-name {
+    font-size: 1.15vw; 
+}
