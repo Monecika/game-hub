@@ -1,5 +1,6 @@
 import "./App.css";
 import GameGrid from "./components/games/GameGrid";
+import GenreList from "./components/genres/GenreList";
 import NavBar from "./components/navBar/NavBar";
 
 function App() {
@@ -14,7 +15,7 @@ function App() {
 
         <div className="row">
           <div className="col-lg-2 d-none d-lg-block text-center py-3">
-            Aside
+            <GenreList></GenreList>
           </div>
 
           <div className="col-12 col-lg-10 py-3">
