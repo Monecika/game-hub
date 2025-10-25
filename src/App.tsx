@@ -17,7 +17,10 @@ function App() {
       </div>
       <div className="row">
         <div className="col-lg-2 d-none d-lg-block text-center py-3">
-          <GenreList onSelectGenre={setSelectedGenre} />
+          <GenreList
+            onSelectGenre={setSelectedGenre}
+            selectedGenre={selectedGenre}
+          />
         </div>
         <div className="col-12 col-lg-10 py-3">
           <GameGrid selectedGenre={selectedGenre} />

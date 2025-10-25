@@ -5,9 +5,10 @@ import GenreSkeleton from "./GenreSkeleton";
 
 interface GenreListProps {
   onSelectGenre: (genre: Genre) => void;
+  selectedGenre: Genre | null;
 }
 
-const GenreList = ({ onSelectGenre }: GenreListProps) => {
+const GenreList = ({ onSelectGenre, selectedGenre }: GenreListProps) => {
   const { data, error, isLoading } = useGenres();
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
@@ -36,7 +37,10 @@ const GenreList = ({ onSelectGenre }: GenreListProps) => {
               key={genre.id}
               onClick={() => onSelectGenre(genre)}
               type="button"
-              className="p-0 m-0 genre-button btn text-start btn-link text-reset text-decoration-none"
+              className={
+                "p-0 m-0 genre-button btn text-start btn-link text-reset text-decoration-none" +
+                (selectedGenre?.id === genre.id ? " fw-bold" : " fw-normal")
+              }
             >
               {genre.name}
             </button>
