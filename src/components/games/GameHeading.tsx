@@ -9,7 +9,7 @@ const GameHeading = ({ gameQuery }: GameHeading) => {
     gameQuery.genre?.name || ""
   } Games`;
 
-  return <h1 className="mb-5">{heading}</h1>;
+  return <h1 className="mb-4">{heading}</h1>;
 };
 
 export default GameHeading;
