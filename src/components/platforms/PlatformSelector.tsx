@@ -15,7 +15,7 @@ const PlatformSelector = ({
   if (error) return;
 
   return (
-    <div className="dropdown mb-2 ">
+    <div className="dropdown">
       <button
         className="btn btn-secondary dropdown-toggle"
         type="button"
