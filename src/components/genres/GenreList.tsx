@@ -12,7 +12,7 @@ const GenreList = ({ onSelectGenre, selectedGenre }: GenreListProps) => {
   const { data, error, isLoading } = useGenres();
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-  if (error) return <p className="text-danger">No data to be loaded</p>;
+  if (error) return <p className="text-danger">{error}</p>;
 
   return (
     <ul className="list-unstyled">

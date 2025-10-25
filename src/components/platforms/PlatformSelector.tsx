@@ -10,7 +10,9 @@ const PlatformSelector = ({
   onSelectPlatform,
   selectedPlatform,
 }: PlatformSelectorProps) => {
-  const { data, error, isLoading } = usePlatforms();
+  const { data, error } = usePlatforms();
+
+  if (error) return <p className="text-danger">{error}</p>;
 
   if (error) return;
 
