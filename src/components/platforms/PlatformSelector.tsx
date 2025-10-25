@@ -42,10 +42,7 @@ const PlatformSelector = ({
               <button
                 className="dropdown-item"
                 type="button"
-                onClick={() => {
-                  onSelectPlatform(platform);
-                  console.log(platform);
-                }}
+                onClick={() => onSelectPlatform(platform)}
               >
                 {platform.name}
               </button>
