@@ -5,6 +5,10 @@
     min-width: 35px;
 }
 
-.genre-name {
-    font-size: 1.15vw; 
+.genre-button {
+    font-size: 1.15vw;
+}
+
+.genre-button:hover{
+    text-decoration: underline !important;
 }

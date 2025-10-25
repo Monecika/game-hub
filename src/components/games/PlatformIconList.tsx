@@ -32,6 +32,7 @@ const PlatformIconList = ({ platforms }: PlatformIconProp) => {
     <div className="d-flex gap-1">
       {platforms.map((platform) => {
         const IconComponent = iconMap[platform.slug];
+        if (!IconComponent) return null;
         return <IconComponent key={platform.slug} className="opacity-75" />;
       })}
     </div>
