@@ -1,6 +1,15 @@
+import type { Platform } from "../../hooks/useGames";
 import usePlatforms from "../../hooks/usePlatforms";
 
-const PlatformSelector = () => {
+interface PlatformSelectorProps {
+  onSelectPlatform: (platform: Platform | null) => void;
+  selectedPlatform: Platform | null;
+}
+
+const PlatformSelector = ({
+  onSelectPlatform,
+  selectedPlatform,
+}: PlatformSelectorProps) => {
   const { data, error, isLoading } = usePlatforms();
 
   if (error) return;
@@ -13,13 +22,31 @@ const PlatformSelector = () => {
         data-bs-toggle="dropdown"
         aria-expanded="false"
       >
-        Platforms
+        {selectedPlatform ? selectedPlatform.name : "Platforms"}
       </button>
       <ul className="dropdown-menu">
+        {selectedPlatform && (
+          <li>
+            <button
+              className="dropdown-item"
+              type="button"
+              onClick={() => onSelectPlatform(null)}
+            >
+              Display All
+            </button>
+          </li>
+        )}
         {data.map((platform) => {
           return (
             <li key={platform.id}>
-              <button className="dropdown-item" type="button">
+              <button
+                className="dropdown-item"
+                type="button"
+                onClick={() => {
+                  onSelectPlatform(platform);
+                  console.log(platform);
+                }}
+              >
                 {platform.name}
               </button>
             </li>

@@ -5,9 +5,18 @@ import GenreList from "./components/genres/GenreList";
 import NavBar from "./components/navBar/NavBar";
 import type { Genre } from "./hooks/useGenres";
 import PlatformSelector from "./components/platforms/PlatformSelector";
+import type { Platform } from "./hooks/useGames";
+
+export interface GameQuery {
+  genre: Genre | null;
+  platform: Platform | null;
+}
 
 function App() {
-  const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
+  // const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
+  // const [selectedPlatform, setPlatform] = useState<Platform | null>(null);
+
+  const [gameQuery, setGameQuery] = useState({} as GameQuery);
 
   return (
     <div className="container-fluid">
@@ -19,13 +28,18 @@ function App() {
       <div className="row">
         <div className="col-lg-2 d-none d-lg-block text-center py-3">
           <GenreList
-            onSelectGenre={setSelectedGenre}
-            selectedGenre={selectedGenre}
+            onSelectGenre={(genre) => setGameQuery({ ...gameQuery, genre })}
+            selectedGenre={gameQuery.genre}
           />
         </div>
         <div className="col-12 col-lg-10 py-3">
-          <PlatformSelector></PlatformSelector>
-          <GameGrid selectedGenre={selectedGenre} />
+          <PlatformSelector
+            onSelectPlatform={(platform) =>
+              setGameQuery({ ...gameQuery, platform })
+            }
+            selectedPlatform={gameQuery.platform}
+          ></PlatformSelector>
+          <GameGrid gameQuery={gameQuery} />
         </div>
       </div>
     </div>
