@@ -1,7 +1,7 @@
 import type { Game } from "../../hooks/useGames";
 import getCroppedImageUrl from "../../services/image-url";
 import CriticScore from "./CriticScore";
-import PlatformIconList from "./PlatformIconList";
+import PlatformIconList from "../platforms/PlatformIconList";
 
 interface GameCardProps {
   game: Game;

@@ -4,6 +4,7 @@ import GameGrid from "./components/games/GameGrid";
 import GenreList from "./components/genres/GenreList";
 import NavBar from "./components/navBar/NavBar";
 import type { Genre } from "./hooks/useGenres";
+import PlatformSelector from "./components/platforms/PlatformSelector";
 
 function App() {
   const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
@@ -23,6 +24,7 @@ function App() {
           />
         </div>
         <div className="col-12 col-lg-10 py-3">
+          <PlatformSelector></PlatformSelector>
           <GameGrid selectedGenre={selectedGenre} />
         </div>
       </div>
