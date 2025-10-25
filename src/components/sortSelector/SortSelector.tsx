@@ -1,4 +1,20 @@
-const SortSelector = () => {
+interface SortSelectorProps {
+  sortOrder: string;
+  onSelectSortOrder: (sortOrder: string) => void;
+}
+
+const SortSelector = ({ sortOrder, onSelectSortOrder }: SortSelectorProps) => {
+  const sortOders = [
+    { value: "", label: "Relevance" },
+    { value: "-added", label: "Date added" },
+    { value: "name", label: "Name" },
+    { value: "-released", label: "Release data" },
+    { value: "-metacritic", label: "Popularity" },
+    { value: "-rating", label: "Average rating" },
+  ];
+
+  const currentSortOrder = sortOders.find((order) => order.value === sortOrder);
+
   return (
     <div className="dropdown">
       <button
@@ -7,39 +23,22 @@ const SortSelector = () => {
         data-bs-toggle="dropdown"
         aria-expanded="false"
       >
-        {"Order by: Relevance"}
+        Order by: {currentSortOrder?.label || "Relevance"}
       </button>
       <ul className="dropdown-menu">
-        <li>
-          <button className="dropdown-item" type="button">
-            Relevance
-          </button>
-        </li>
-        <li>
-          <button className="dropdown-item" type="button">
-            Date added
-          </button>
-        </li>
-        <li>
-          <button className="dropdown-item" type="button">
-            Name
-          </button>
-        </li>
-        <li>
-          <button className="dropdown-item" type="button">
-            Release date
-          </button>
-        </li>
-        <li>
-          <button className="dropdown-item" type="button">
-            Popularity
-          </button>
-        </li>
-        <li>
-          <button className="dropdown-item" type="button">
-            Average rating
-          </button>
-        </li>
+        {sortOders.map((order) => {
+          return (
+            <li key={order.value}>
+              <button
+                className="dropdown-item"
+                type="button"
+                onClick={() => onSelectSortOrder(order.value)}
+              >
+                {order.label}
+              </button>
+            </li>
+          );
+        })}
       </ul>
     </div>
   );
