@@ -1,7 +1,7 @@
 import type { Game } from "../../hooks/useGames";
 import getCroppedImageUrl from "../../services/image-url";
-import CriticScore from "./CriticScore";
 import PlatformIconList from "../platforms/PlatformIconList";
+import CriticScore from "./CriticScore";
 
 interface GameCardProps {
   game: Game;
@@ -16,16 +16,18 @@ const GameCard = ({ game }: GameCardProps) => {
         alt={game.name}
       />
       <div className="card-body">
-        <h5 className="card-title">{game.name}</h5>
         {
-          <div className="d-flex justify-content-between align-items-center">
-            <>
-              <PlatformIconList
-                platforms={game.parent_platforms.map((p) => p.platform)}
-              />
-              <CriticScore score={game.metacritic} />
-            </>
-          </div>
+          <>
+            <div className="d-flex justify-content-between align-items-center mb-2">
+              <>
+                <PlatformIconList
+                  platforms={game.parent_platforms.map((p) => p.platform)}
+                />
+                <CriticScore score={game.metacritic} />
+              </>
+            </div>
+            <h5 className="card-title">{game.name}</h5>
+          </>
         }
       </div>
     </div>
