@@ -12,6 +12,7 @@ export interface GameQuery {
   genre: Genre | null;
   platform: Platform | null;
   sortOder: string;
+  searchText: string;
 }
 
 function App() {
@@ -24,7 +25,11 @@ function App() {
     <div className="container-fluid">
       <div className="row">
         <div className="col-12 text-center py-3">
-          <NavBar />
+          <NavBar
+            onSearch={(searchText) =>
+              setGameQuery({ ...gameQuery, searchText })
+            }
+          />
         </div>
       </div>
       <div className="row">
