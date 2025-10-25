@@ -4,7 +4,7 @@ import "./GenreList.css";
 import GenreSkeleton from "./GenreSkeleton";
 
 interface GenreListProps {
-  onSelectGenre: (genre: Genre) => void;
+  onSelectGenre: (genre: Genre | null) => void;
   selectedGenre: Genre | null;
 }
 
@@ -35,7 +35,9 @@ const GenreList = ({ onSelectGenre, selectedGenre }: GenreListProps) => {
             />
             <button
               key={genre.id}
-              onClick={() => onSelectGenre(genre)}
+              onClick={() =>
+                onSelectGenre(genre.id === selectedGenre?.id ? null : genre)
+              }
               type="button"
               className={
                 "p-0 m-0 genre-button btn text-start btn-link text-reset text-decoration-none" +
