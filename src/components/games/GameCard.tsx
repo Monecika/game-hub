@@ -1,5 +1,6 @@
 import type { Game } from "../../hooks/useGames";
 import getCroppedImageUrl from "../../services/image-url";
+import Emoji from "../emoji/Emoji";
 import PlatformIconList from "../platforms/PlatformIconList";
 import CriticScore from "./CriticScore";
 
@@ -26,7 +27,9 @@ const GameCard = ({ game }: GameCardProps) => {
                 <CriticScore score={game.metacritic} />
               </>
             </div>
-            <h5 className="card-title">{game.name}</h5>
+            <h5 className="card-title">
+              {game.name} <Emoji rating={game.rating_top}></Emoji>
+            </h5>
           </>
         }
       </div>
