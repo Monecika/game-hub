@@ -14,7 +14,7 @@ const Emoji = ({ rating }: EmojiProps) => {
     4: {
       src: thumbsUp,
       alt: "recommended",
-      className: "emoji-img-thumbs align-bottom ms-1",
+      className: "emoji-img-thumb align-bottom ms-1",
     },
     5: {
       src: bullEye,

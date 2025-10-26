@@ -4,10 +4,14 @@ import { faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
 import "./ColorModeSwitch.css";
 
 const ThemeToggle = () => {
-  const [darkMode, setDarkMode] = useState<boolean>(false);
+  const [darkMode, setDarkMode] = useState<boolean>(() => {
+    const savedTheme = localStorage.getItem("theme");
+    return savedTheme === "dark";
+  });
 
   useEffect(() => {
     document.body.setAttribute("data-bs-theme", darkMode ? "dark" : "light");
+    localStorage.setItem("theme", darkMode ? "dark" : "light");
   }, [darkMode]);
 
   const handleToggle = () => setDarkMode((prev) => !prev);
