@@ -34,7 +34,7 @@ function App() {
         </div>
       </div>
       <div className="row">
-        <h4 className="text-start ps-4">Genres</h4>
+        <h4 className="text-start ps-4 d-none d-lg-block">Genres</h4>
         <div className="col-lg-2 d-none d-lg-block text-center py-3">
           <GenreList
             onSelectGenre={(genre) => setGameQuery({ ...gameQuery, genre })}
