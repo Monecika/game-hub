@@ -1,5 +1,5 @@
-import type { Game } from "../../hooks/useGames";
-import getCroppedImageUrl from "../../services/image-url";
+import type { Game } from "../../services/games/gamesService";
+import getCroppedImageUrl from "../../services/imageUrl";
 import Emoji from "../emoji/Emoji";
 import PlatformIconList from "../platforms/PlatformIconList";
 import CriticScore from "./CriticScore";

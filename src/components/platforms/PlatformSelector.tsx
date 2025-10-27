@@ -1,5 +1,5 @@
-import type { Platform } from "../../hooks/useGames";
 import usePlatforms from "../../hooks/usePlatforms";
+import type { Platform } from "../../services/platforms/platformsService";
 
 interface PlatformSelectorProps {
   onSelectPlatform: (platform: Platform | null) => void;
@@ -12,7 +12,7 @@ const PlatformSelector = ({
 }: PlatformSelectorProps) => {
   const { data, error } = usePlatforms();
 
-  if (error) return <p className="text-danger">{error}</p>;
+  if (error) return <p className="text-danger">{error.message}</p>;
 
   if (error) return;
 
@@ -38,19 +38,17 @@ const PlatformSelector = ({
             </button>
           </li>
         )}
-        {data.map((platform) => {
-          return (
-            <li key={platform.id}>
-              <button
-                className="dropdown-item"
-                type="button"
-                onClick={() => onSelectPlatform(platform)}
-              >
-                {platform.name}
-              </button>
-            </li>
-          );
-        })}
+        {data?.map((platform) => (
+          <li key={platform.id}>
+            <button
+              className="dropdown-item"
+              type="button"
+              onClick={() => onSelectPlatform(platform)}
+            >
+              {platform.name}
+            </button>
+          </li>
+        ))}
       </ul>
     </div>
   );
