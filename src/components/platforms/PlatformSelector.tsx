@@ -1,5 +1,5 @@
-import type { Platform } from "../../hooks/useGames";
 import usePlatforms from "../../hooks/usePlatforms";
+import type { Platform } from "../../services/platforms/platformService";
 
 interface PlatformSelectorProps {
   onSelectPlatform: (platform: Platform | null) => void;
@@ -12,7 +12,7 @@ const PlatformSelector = ({
 }: PlatformSelectorProps) => {
   const { data, error } = usePlatforms();
 
-  if (error) return <p className="text-danger">{error}</p>;
+  if (error) return <p className="text-danger">{error.message}</p>;
 
   if (error) return;
 
