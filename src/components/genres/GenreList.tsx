@@ -26,7 +26,7 @@ const GenreList = ({ onSelectGenre, selectedGenre }: GenreListProps) => {
           );
         })}
 
-      {data.map((genre) => (
+      {data?.map((genre) => (
         <li key={genre.id}>
           <div className="d-flex gap-1 align-items-center mb-1 ps-3">
             <img

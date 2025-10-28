@@ -38,7 +38,7 @@ const PlatformSelector = ({
             </button>
           </li>
         )}
-        {data.map((platform) => {
+        {data?.map((platform) => {
           return (
             <li key={platform.id}>
               <button

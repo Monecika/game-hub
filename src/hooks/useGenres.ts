@@ -10,7 +10,7 @@ const useGenres = () =>
     queryFn: () => genreService.getAll(),
     select: (data) => data.results,
     staleTime: 1000 * 60 * 60 * 24,
-    initialData: { count: genres.length, results: genres },
+    initialData: { count: genres.length, next: null, results: genres },
   });
 
 export default useGenres;

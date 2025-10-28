@@ -11,7 +11,7 @@ const usePlatforms = () =>
     queryFn: () => platformService.getAll(),
     select: (data) => data.results,
     staleTime: 1000 * 60 * 60 * 24,
-    initialData: { count: platforms.length, results: platforms },
+    initialData: { count: platforms.length, next: null, results: platforms },
   });
 
 export default usePlatforms;

@@ -6,8 +6,8 @@ import NavBar from "./components/navBar/NavBar";
 import PlatformSelector from "./components/platforms/PlatformSelector";
 import SortSelector from "./components/sortSelector/SortSelector";
 import GameHeading from "./components/games/GameHeading";
-import type { Platform } from "./services/platforms/platformsService";
-import type { Genre } from "./services/genres/genresService";
+import type { Platform } from "./services/platforms/platformService";
+import type { Genre } from "./services/genres/genreService";
 
 export interface GameQuery {
   genre: Genre | null;
@@ -17,9 +17,6 @@ export interface GameQuery {
 }
 
 function App() {
-  // const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
-  // const [selectedPlatform, setPlatform] = useState<Platform | null>(null);
-
   const [gameQuery, setGameQuery] = useState({} as GameQuery);
 
   return (
