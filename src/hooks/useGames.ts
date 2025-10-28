@@ -1,17 +1,23 @@
 import { useQuery } from "@tanstack/react-query";
 import type { GameQuery } from "../App";
-import gamesService from "../services/games/gamesService";
+import type { Game } from "../services/games/gameService";
+import gameService from "../services/games/gameService";
+import type { FetchResponse } from "../services/apiClient";
 
 const useGames = (gameQuery: GameQuery) =>
-  useQuery({
+  useQuery<FetchResponse<Game>, Error, Game[]>({
     queryKey: ["games", gameQuery],
     queryFn: () =>
-      gamesService.getAll({
-        genres: gameQuery.genre?.id,
-        parent_platforms: gameQuery.platform?.id,
-        ordering: gameQuery.sortOder,
-        search: gameQuery.searchText,
+      gameService.getAll({
+        params: {
+          genres: gameQuery.genre?.id,
+          parent_platforms: gameQuery.platform?.id,
+          ordering: gameQuery.sortOder,
+          search: gameQuery.searchText,
+        },
       }),
+    select: (data) => data.results,
+    staleTime: 1000 * 60 * 60 * 3,
   });
 
 export default useGames;

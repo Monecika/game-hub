@@ -1,5 +1,5 @@
 import useGenres from "../../hooks/useGenres";
-import type { Genre } from "../../services/genres/genresService";
+import type { Genre } from "../../services/genres/genreService";
 import getCroppedImageUrl from "../../services/imageUrl";
 import "./GenreList.css";
 import GenreSkeleton from "./GenreSkeleton";
@@ -26,7 +26,7 @@ const GenreList = ({ onSelectGenre, selectedGenre }: GenreListProps) => {
           );
         })}
 
-      {data?.map((genre) => (
+      {data.map((genre) => (
         <li key={genre.id}>
           <div className="d-flex gap-1 align-items-center mb-1 ps-3">
             <img

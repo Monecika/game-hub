@@ -1,5 +1,5 @@
 import usePlatforms from "../../hooks/usePlatforms";
-import type { Platform } from "../../services/platforms/platformsService";
+import type { Platform } from "../../services/platforms/platformService";
 
 interface PlatformSelectorProps {
   onSelectPlatform: (platform: Platform | null) => void;
@@ -38,17 +38,19 @@ const PlatformSelector = ({
             </button>
           </li>
         )}
-        {data?.map((platform) => (
-          <li key={platform.id}>
-            <button
-              className="dropdown-item"
-              type="button"
-              onClick={() => onSelectPlatform(platform)}
-            >
-              {platform.name}
-            </button>
-          </li>
-        ))}
+        {data.map((platform) => {
+          return (
+            <li key={platform.id}>
+              <button
+                className="dropdown-item"
+                type="button"
+                onClick={() => onSelectPlatform(platform)}
+              >
+                {platform.name}
+              </button>
+            </li>
+          );
+        })}
       </ul>
     </div>
   );

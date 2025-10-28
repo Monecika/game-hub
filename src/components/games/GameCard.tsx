@@ -1,4 +1,4 @@
-import type { Game } from "../../services/games/gamesService";
+import type { Game } from "../../services/games/gameService";
 import getCroppedImageUrl from "../../services/imageUrl";
 import Emoji from "../emoji/Emoji";
 import PlatformIconList from "../platforms/PlatformIconList";
