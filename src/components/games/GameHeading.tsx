@@ -1,21 +1,15 @@
 import type { GameQuery } from "../../App";
-import useGenres from "../../hooks/useGenres";
-import usePlatforms from "../../hooks/usePlatforms";
+import useGenre from "../../hooks/genres/useGenre";
+import usePlatform from "../../hooks/platforms/usePlatform";
 
 interface GameHeading {
   gameQuery: GameQuery;
 }
 
 const GameHeading = ({ gameQuery }: GameHeading) => {
-  const { data: platforms } = usePlatforms();
-  const { data: genres } = useGenres();
+  const platformName = usePlatform(gameQuery.platformId);
 
-  const platformName =
-    platforms.find((platform) => platform.id === gameQuery.platformId)?.name ||
-    "";
-
-  const genreName =
-    genres.find((genre) => genre.id === gameQuery.genreId)?.name || "";
+  const genreName = useGenre(gameQuery.genreId);
 
   const heading = `${platformName} ${genreName} Games`;
 

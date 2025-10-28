@@ -1,9 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
-import platforms from "../data/platforms";
-import platformService, {
-  type Platform,
-} from "../services/platforms/platformService";
-import type { FetchResponse } from "../services/apiClient";
+import platforms from "../../data/platforms";
+import type { FetchResponse } from "../../services/apiClient";
+import platformService, { type Platform } from "../../services/platforms/platformService";
+
 
 const usePlatforms = () =>
   useQuery<FetchResponse<Platform>, Error, Platform[]>({
@@ -11,7 +10,7 @@ const usePlatforms = () =>
     queryFn: () => platformService.getAll(),
     select: (data) => data.results,
     staleTime: 1000 * 60 * 60 * 24,
-    initialData: { count: platforms.length, next: null, results: platforms },
+    initialData: platforms
   });
 
 export default usePlatforms;

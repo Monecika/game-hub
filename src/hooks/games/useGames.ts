@@ -1,10 +1,10 @@
 import {
   useInfiniteQuery,
 } from "@tanstack/react-query";
-import type { GameQuery } from "../App";
-import type { Game } from "../services/games/gameService";
-import gameService from "../services/games/gameService";
-import type { FetchResponse } from "../services/apiClient";
+import type { GameQuery } from "../../App";
+import type { Game } from "../../services/games/gameService";
+import gameService from "../../services/games/gameService";
+import type { FetchResponse } from "../../services/apiClient";
 
 const useGames = (gameQuery: GameQuery) =>
   useInfiniteQuery<FetchResponse<Game>, Error>({

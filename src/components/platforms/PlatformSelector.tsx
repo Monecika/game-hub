@@ -1,4 +1,5 @@
-import usePlatforms from "../../hooks/usePlatforms";
+import usePlatform from "../../hooks/platforms/usePlatform";
+import usePlatforms from "../../hooks/platforms/usePlatforms";
 import type { Platform } from "../../services/platforms/platformService";
 
 interface PlatformSelectorProps {
@@ -11,9 +12,7 @@ const PlatformSelector = ({
   selectedPlatformId,
 }: PlatformSelectorProps) => {
   const { data, error } = usePlatforms();
-  const platformName = data.find(
-    (platform) => platform.id === selectedPlatformId
-  )?.name;
+  const platformName = usePlatform(selectedPlatformId);
 
   if (error) return <p className="text-danger">{error.message}</p>;
 
