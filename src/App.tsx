@@ -6,12 +6,10 @@ import NavBar from "./components/navBar/NavBar";
 import PlatformSelector from "./components/platforms/PlatformSelector";
 import SortSelector from "./components/sortSelector/SortSelector";
 import GameHeading from "./components/games/GameHeading";
-import type { Platform } from "./services/platforms/platformService";
-import type { Genre } from "./services/genres/genreService";
 
 export interface GameQuery {
-  genre: Genre | null;
-  platform: Platform | null;
+  genreId?: number;
+  platformId?: number;
   sortOder: string;
   searchText: string;
 }
@@ -34,8 +32,10 @@ function App() {
         <h4 className="text-start ps-4 d-none d-lg-block">Genres</h4>
         <div className="col-lg-2 d-none d-lg-block text-center py-3">
           <GenreList
-            onSelectGenre={(genre) => setGameQuery({ ...gameQuery, genre })}
-            selectedGenre={gameQuery.genre}
+            onSelectGenre={(genre) =>
+              setGameQuery({ ...gameQuery, genreId: genre?.id })
+            }
+            selectedGenreId={gameQuery.genreId}
           />
         </div>
         <div className="col-12 col-lg-10 py-3">
@@ -43,9 +43,9 @@ function App() {
           <div className="d-flex gap-2 mb-4">
             <PlatformSelector
               onSelectPlatform={(platform) =>
-                setGameQuery({ ...gameQuery, platform })
+                setGameQuery({ ...gameQuery, platformId: platform?.id })
               }
-              selectedPlatform={gameQuery.platform}
+              selectedPlatformId={gameQuery.platformId}
             ></PlatformSelector>
             <SortSelector
               sortOrder={gameQuery.sortOder}

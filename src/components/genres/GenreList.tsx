@@ -6,10 +6,10 @@ import GenreSkeleton from "./GenreSkeleton";
 
 interface GenreListProps {
   onSelectGenre: (genre: Genre | null) => void;
-  selectedGenre: Genre | null;
+  selectedGenreId?: number;
 }
 
-const GenreList = ({ onSelectGenre, selectedGenre }: GenreListProps) => {
+const GenreList = ({ onSelectGenre, selectedGenreId }: GenreListProps) => {
   const { data, error, isLoading } = useGenres();
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
@@ -26,7 +26,7 @@ const GenreList = ({ onSelectGenre, selectedGenre }: GenreListProps) => {
           );
         })}
 
-      {data?.map((genre) => (
+      {data.map((genre) => (
         <li key={genre.id}>
           <div className="d-flex gap-1 align-items-center mb-1 ps-3">
             <img
@@ -37,12 +37,12 @@ const GenreList = ({ onSelectGenre, selectedGenre }: GenreListProps) => {
             <button
               key={genre.id}
               onClick={() =>
-                onSelectGenre(genre.id === selectedGenre?.id ? null : genre)
+                onSelectGenre(genre.id === selectedGenreId ? null : genre)
               }
               type="button"
               className={
                 "p-0 m-0 genre-button btn text-start btn-link text-reset text-decoration-none" +
-                (selectedGenre?.id === genre.id ? " fw-bold" : " fw-normal")
+                (selectedGenreId === genre.id ? " fw-bold" : " fw-normal")
               }
             >
               {genre.name}

@@ -3,14 +3,17 @@ import type { Platform } from "../../services/platforms/platformService";
 
 interface PlatformSelectorProps {
   onSelectPlatform: (platform: Platform | null) => void;
-  selectedPlatform: Platform | null;
+  selectedPlatformId?: number;
 }
 
 const PlatformSelector = ({
   onSelectPlatform,
-  selectedPlatform,
+  selectedPlatformId,
 }: PlatformSelectorProps) => {
   const { data, error } = usePlatforms();
+  const platformName = data.find(
+    (platform) => platform.id === selectedPlatformId
+  )?.name;
 
   if (error) return <p className="text-danger">{error.message}</p>;
 
@@ -24,10 +27,10 @@ const PlatformSelector = ({
         data-bs-toggle="dropdown"
         aria-expanded="false"
       >
-        {selectedPlatform ? selectedPlatform.name : "Platforms"}
+        {selectedPlatformId ? platformName : "Platforms"}
       </button>
       <ul className="dropdown-menu">
-        {selectedPlatform && (
+        {selectedPlatformId && (
           <li>
             <button
               className="dropdown-item"

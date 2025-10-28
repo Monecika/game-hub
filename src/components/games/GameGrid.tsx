@@ -1,4 +1,3 @@
-import React from "react";
 import type { GameQuery } from "../../App";
 import useGames from "../../hooks/useGames";
 import GameCard from "./GameCard";
@@ -10,14 +9,8 @@ interface GameGridProps {
 }
 
 const GameGrid = ({ gameQuery }: GameGridProps) => {
-  const {
-    data,
-    error,
-    isLoading,
-    hasNextPage,
-    isFetchingNextPage,
-    fetchNextPage,
-  } = useGames(gameQuery);
+  const { data, error, isLoading, hasNextPage, fetchNextPage } =
+    useGames(gameQuery);
 
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8];
 
@@ -62,16 +55,6 @@ const GameGrid = ({ gameQuery }: GameGridProps) => {
           ))}
         </div>
       </InfiniteScroll>
-
-      {hasNextPage && (
-        <button
-          className="btn btn-primary mt-3"
-          onClick={() => fetchNextPage()}
-          disabled={isFetchingNextPage}
-        >
-          {isFetchingNextPage ? "Loading..." : "Load"}
-        </button>
-      )}
     </>
   );
 };
