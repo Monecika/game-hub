@@ -1,11 +1,11 @@
 import { useState } from "react";
 import "./App.css";
-import GameGrid from "./components/games/GameGrid";
-import GenreList from "./components/genres/GenreList";
 import NavBar from "./components/navBar/NavBar";
-import PlatformSelector from "./components/platforms/PlatformSelector";
+import PlatformSelector from "./features/platforms/components/PlatformSelector";
 import SortSelector from "./components/sortSelector/SortSelector";
-import GameHeading from "./components/games/GameHeading";
+import GenreList from "./features/genres/components/GenreList";
+import GameHeading from "./features/games/components/GameHeading";
+import GameGrid from "./features/games/components/GameGrid";
 
 export interface GameQuery {
   genreId?: number;

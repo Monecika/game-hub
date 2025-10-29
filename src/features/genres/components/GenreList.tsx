@@ -1,8 +1,8 @@
 import useGenres from "../../hooks/genres/useGenres";
-import type { Genre } from "../../services/genres/genreService";
-import getCroppedImageUrl from "../../services/imageUrl";
+import type { Genre } from "../../../services/genres/genreService";
+import getCroppedImageUrl from "../../../services/imageUrl";
 import "./GenreList.css";
-import GenreSkeleton from "./GenreSkeleton";
+import GenreSkeleton from "../GenreSkeleton";
 
 interface GenreListProps {
   onSelectGenre: (genre: Genre | null) => void;
