@@ -1,6 +1,6 @@
-import type { GameQuery } from "../../App";
-import useGenre from "../../hooks/genres/useGenre";
-import usePlatform from "../../hooks/platforms/usePlatform";
+import type { GameQuery } from "../../../App";
+import useGenre from "../../genres/hooks/useGenre";
+import usePlatform from "../../platforms/hooks/usePlatform";
 
 interface GameHeading {
   gameQuery: GameQuery;

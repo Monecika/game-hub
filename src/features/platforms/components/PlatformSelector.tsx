@@ -1,6 +1,6 @@
-import usePlatform from "../../hooks/platforms/usePlatform";
-import usePlatforms from "../../hooks/platforms/usePlatforms";
-import type { Platform } from "../../services/platforms/platformService";
+import usePlatform from "../hooks/usePlatform";
+import usePlatforms from "../hooks/usePlatforms";
+import type { Platform } from "../services/platformService";
 
 interface PlatformSelectorProps {
   onSelectPlatform: (platform: Platform | null) => void;

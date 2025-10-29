@@ -1,7 +1,7 @@
-import type { Game } from "../../services/games/gameService";
-import getCroppedImageUrl from "../../services/imageUrl";
-import Emoji from "../emoji/Emoji";
-import PlatformIconList from "../platforms/PlatformIconList";
+import Emoji from "../../../components/emoji/Emoji";
+import getCroppedImageUrl from "../../../services/imageUrl";
+import PlatformIconList from "../../platforms/components/PlatformIconList";
+import type { Game } from "../services/gameService";
 import CriticScore from "./CriticScore";
 
 interface GameCardProps {

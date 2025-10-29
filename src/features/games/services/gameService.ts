@@ -1,5 +1,5 @@
-import APIClient from "../apiClient";
-import type { Platform } from "../platforms/platformService";
+import APIClient from "../../../services/apiClient";
+import type { Platform } from "../../platforms/services/platformService";
 
 export interface Game {
   id: number;

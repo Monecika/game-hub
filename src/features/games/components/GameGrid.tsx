@@ -1,5 +1,5 @@
-import type { GameQuery } from "../../App";
-import useGames from "../../hooks/games/useGames";
+import type { GameQuery } from "../../../App";
+import useGames from "../hooks/useGames";
 import GameCard from "./GameCard";
 import GameCardSkeleton from "./GameCardSkeleton";
 import InfiniteScroll from "react-infinite-scroll-component";
