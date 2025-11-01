@@ -3,6 +3,7 @@ import useGame from "../hooks/useGame";
 import ExpandableText from "../../../components/expandableText/ExpandableText";
 import GameAttributes from "./GameAttributes";
 import GameTrailer from "./GameTrailer";
+import GameScreenshots from "./GameScreenshots";
 
 const GameDetails = () => {
   const { slug } = useParams();
@@ -24,6 +25,7 @@ const GameDetails = () => {
       <ExpandableText children={game.description} />
       <GameAttributes game={game}></GameAttributes>
       <GameTrailer gameId={game.id}></GameTrailer>
+      <GameScreenshots gameId={game.id}></GameScreenshots>
     </>
   );
 };

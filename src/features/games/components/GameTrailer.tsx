@@ -13,9 +13,21 @@ const GameTrailer = ({ gameId }: GameTrailerProps) => {
   const first = data?.results[0];
 
   return first ? (
-    <video src={first.data[480]} poster={first.preview} controls></video>
+    <video
+      src={first.data[480]}
+      poster={first.preview}
+      controls
+      width={480}
+    ></video>
   ) : (
-    <h1>trailer not available</h1>
+    <video
+      controls
+      width={480}
+      poster="https://via.placeholder.com/480x270?text=Video+Unavailable"
+    >
+      <source src="" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
   );
 };
 
