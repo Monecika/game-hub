@@ -17,9 +17,12 @@ const ExpandableText = ({ children }: ExpandableTextProps) => {
   return (
     <p>
       {expaned ? children : summary}
-      <button className="ms-1" onClick={() => setExpanded(!expaned)}>
+      <button
+        className="ms-1 rounded-3 border-0 btn btn-warning py-1"
+        onClick={() => setExpanded(!expaned)}
+      >
         Show {expaned ? "less" : "more"}
-      </button>{" "}
+      </button>
     </p>
   );
 };
