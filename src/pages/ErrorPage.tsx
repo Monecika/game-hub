@@ -7,12 +7,8 @@ const ErrorPage = () => {
   return (
     <>
       <NavBar></NavBar>
-      <div className="p-3">
-        <h1>Oops!</h1>
-        <p>
-          {isRouteErrorResponse(error) ? "Invalid route" : "Undefined error"}
-        </p>
-      </div>
+      <h1>Oops!</h1>
+      <p>{isRouteErrorResponse(error) ? "Invalid route" : "Undefined error"}</p>
     </>
   );
 };

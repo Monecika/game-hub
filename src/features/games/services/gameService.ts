@@ -4,6 +4,8 @@ import type { Platform } from "../../platforms/services/platformService";
 export interface Game {
   id: number;
   name: string;
+  slug: string; 
+  description: string;
   background_image: string;
   parent_platforms: {platform: Platform}[];
   metacritic: number;
@@ -11,4 +13,4 @@ export interface Game {
   rating: number;
 }
 
-export default new APIClient<Game>("/games");
+export default new APIClient<Game>("/games"); 

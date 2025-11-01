@@ -1,0 +1,7 @@
+.hover-effect{
+    transition: all .3s ease;
+}
+
+.hover-effect:hover{
+    transform: scale(1.02);
+}
