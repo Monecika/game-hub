@@ -1,9 +1,13 @@
+import type { Genre } from "../../genres/entities/Genre";
 import type { Platform } from "../../platforms/entities/Platform";
+import type { Publisher } from "../../publishers/entities/Publisher";
 
 export interface Game {
   id: number;
   name: string;
   slug: string;
+  genres: Genre[];
+  publishers: Publisher[];
   description: string;
   background_image: string;
   parent_platforms: { platform: Platform; }[];
