@@ -22,10 +22,16 @@ const GameDetails = () => {
   return (
     <>
       <h1>{game.name}</h1>
-      <ExpandableText children={game.description} />
-      <GameAttributes game={game}></GameAttributes>
-      <GameTrailer gameId={game.id}></GameTrailer>
-      <GameScreenshots gameId={game.id}></GameScreenshots>
+      <div className="row">
+        <div className="col-12 col-md-6">
+          <ExpandableText children={game.description} />
+          <GameAttributes game={game}></GameAttributes>
+        </div>
+        <div className="col-12 col-md-6">
+          <GameTrailer gameId={game.id}></GameTrailer>
+          <GameScreenshots gameId={game.id}></GameScreenshots>
+        </div>
+      </div>
     </>
   );
 };
