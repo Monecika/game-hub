@@ -5,25 +5,34 @@ const BackToTopButton = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 300) {
-        setVisible(true);
-      } else {
-        setVisible(false);
-      }
+      const scrollTop =
+        document.documentElement.scrollTop || document.body.scrollTop;
+      setVisible(scrollTop > 300);
     };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollToTop = () => {
-    const scrollStep = -window.scrollY / 15;
-    const scrollAnimation = () => {
-      if (window.scrollY !== 0) {
-        window.scrollBy(0, scrollStep);
-        requestAnimationFrame(scrollAnimation);
-      }
-    };
-    requestAnimationFrame(scrollAnimation);
+    const scrollContainer =
+      document.scrollingElement || document.documentElement || document.body;
+
+    if ("scrollBehavior" in document.documentElement.style) {
+      scrollContainer.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      let currentScroll = scrollContainer.scrollTop;
+      const step = () => {
+        currentScroll -= 50;
+        if (currentScroll > 0) {
+          scrollContainer.scrollTop = currentScroll;
+          requestAnimationFrame(step);
+        } else {
+          scrollContainer.scrollTop = 0;
+        }
+      };
+      requestAnimationFrame(step);
+    }
   };
 
   if (!visible) return null;

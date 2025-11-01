@@ -22,7 +22,7 @@ const GameTrailer = ({ gameId }: GameTrailerProps) => {
   ) : (
     <video
       controls
-      width={480}
+      className="w-100"
       poster="https://via.placeholder.com/480x270?text=Video+Unavailable"
     >
       <source src="" type="video/mp4" />
