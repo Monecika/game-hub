@@ -1,5 +1,5 @@
 import DefinitionItem from "../../../components/DefinitionItem/DefinitionItem";
-import type { Game } from "../entities/Game";
+import type Game from "../entities/Game";
 import CriticScore from "./CriticScore";
 
 interface GameAttributesProps {

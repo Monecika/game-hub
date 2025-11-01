@@ -1,10 +1,10 @@
 import Emoji from "../../../components/emoji/Emoji";
 import getCroppedImageUrl from "../../../services/imageUrl";
 import PlatformIconList from "../../platforms/components/PlatformIconList";
-import type { Game } from "../entities/Game";
 import CriticScore from "./CriticScore";
 import "../styles/GameStyles.css";
 import { Link } from "react-router-dom";
+import type Game from "../entities/Game";
 
 interface GameCardProps {
   game: Game;
