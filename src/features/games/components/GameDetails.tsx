@@ -2,8 +2,8 @@ import { useParams } from "react-router-dom";
 import useGame from "../hooks/useGame";
 import ExpandableText from "../../../components/expandableText/ExpandableText";
 import GameAttributes from "./GameAttributes";
-import GameTrailer from "./GameTrailer";
-import GameScreenshots from "./GameScreenshots";
+// import GameTrailer from "./GameTrailer";
+// import GameScreenshots from "./GameScreenshots";
 
 const GameDetails = () => {
   const { slug } = useParams();
@@ -28,8 +28,8 @@ const GameDetails = () => {
           <GameAttributes game={game}></GameAttributes>
         </div>
         <div className="col-12 col-md-6">
-          <GameTrailer gameId={game.id}></GameTrailer>
-          <GameScreenshots gameId={game.id}></GameScreenshots>
+          {/* <GameTrailer gameId={game.id}></GameTrailer> */}
+          {/* <GameScreenshots gameId={game.id}></GameScreenshots> */}
         </div>
       </div>
     </>
