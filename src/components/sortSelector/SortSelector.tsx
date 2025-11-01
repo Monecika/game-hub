@@ -1,9 +1,11 @@
-interface SortSelectorProps {
-  sortOrder: string;
-  onSelectSortOrder: (sortOrder: string) => void;
-}
+import useGameQueryStore from "../../store";
 
-const SortSelector = ({ sortOrder, onSelectSortOrder }: SortSelectorProps) => {
+const SortSelector = () => {
+  const sortOrder = useGameQueryStore(
+    (selector) => selector.gameQuery.sortOrder
+  );
+  const setSortOrder = useGameQueryStore((selector) => selector.setSortOrder);
+
   const sortOders = [
     { value: "", label: "Relevance" },
     { value: "-added", label: "Date added" },
@@ -28,11 +30,11 @@ const SortSelector = ({ sortOrder, onSelectSortOrder }: SortSelectorProps) => {
       <ul className="dropdown-menu">
         {sortOders.map((order) => {
           return (
-            <li key={order.value}>
+            <li key={order.label}>
               <button
                 className="dropdown-item"
                 type="button"
-                onClick={() => onSelectSortOrder(order.value)}
+                onClick={() => setSortOrder(order.value)}
               >
                 {order.label}
               </button>

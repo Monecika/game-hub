@@ -1,15 +1,13 @@
 import getCroppedImageUrl from "../../../services/imageUrl";
+import useGameQueryStore from "../../../store";
 import useGenres from "../hooks/useGenres";
-import type { Genre } from "../services/genreService";
 import "./GenreList.css";
 import GenreSkeleton from "./GenreSkeleton";
 
-interface GenreListProps {
-  onSelectGenre: (genre: Genre | null) => void;
-  selectedGenreId?: number;
-}
+const GenreList = () => {
+  const genreId = useGameQueryStore((state) => state.gameQuery.genreId);
+  const setGenreId = useGameQueryStore((state) => state.setGenreId);
 
-const GenreList = ({ onSelectGenre, selectedGenreId }: GenreListProps) => {
   const { data, error, isLoading } = useGenres();
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
@@ -37,12 +35,12 @@ const GenreList = ({ onSelectGenre, selectedGenreId }: GenreListProps) => {
             <button
               key={genre.id}
               onClick={() =>
-                onSelectGenre(genre.id === selectedGenreId ? null : genre)
+                setGenreId(genre.id === genreId ? undefined : genre.id)
               }
               type="button"
               className={
                 "p-0 m-0 genre-button btn text-start btn-link text-reset text-decoration-none" +
-                (selectedGenreId === genre.id ? " fw-bold" : " fw-normal")
+                (genreId === genre.id ? " fw-bold" : " fw-normal")
               }
             >
               {genre.name}

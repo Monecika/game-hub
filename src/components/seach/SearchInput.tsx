@@ -1,11 +1,10 @@
 import { useRef } from "react";
 import { BsSearch } from "react-icons/bs";
+import useGameQueryStore from "../../store";
 
-interface SearchInputProps {
-  onSearch: (searchText: string) => void;
-}
+const SearchInput = () => {
+  const setSearchText = useGameQueryStore((selector) => selector.setSearchText);
 
-const SearchInput = ({ onSearch }: SearchInputProps) => {
   const ref = useRef<HTMLInputElement>(null);
 
   return (
@@ -13,7 +12,7 @@ const SearchInput = ({ onSearch }: SearchInputProps) => {
       className="w-100"
       onSubmit={(event) => {
         event.preventDefault();
-        if (ref.current) onSearch(ref.current.value);
+        if (ref.current) setSearchText(ref.current.value);
       }}
     >
       <div className="input-group">

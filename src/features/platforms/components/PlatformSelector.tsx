@@ -1,18 +1,15 @@
+import useGameQueryStore from "../../../store";
 import usePlatform from "../hooks/usePlatform";
 import usePlatforms from "../hooks/usePlatforms";
-import type { Platform } from "../services/platformService";
 
-interface PlatformSelectorProps {
-  onSelectPlatform: (platform: Platform | null) => void;
-  selectedPlatformId?: number;
-}
+const PlatformSelector = () => {
+  const platformId = useGameQueryStore(
+    (selector) => selector.gameQuery.platformId
+  );
+  const setPlatformId = useGameQueryStore((selector) => selector.setPlatformId);
 
-const PlatformSelector = ({
-  onSelectPlatform,
-  selectedPlatformId,
-}: PlatformSelectorProps) => {
   const { data, error } = usePlatforms();
-  const platformName = usePlatform(selectedPlatformId);
+  const platformName = usePlatform(platformId);
 
   if (error) return <p className="text-danger">{error.message}</p>;
 
@@ -26,15 +23,15 @@ const PlatformSelector = ({
         data-bs-toggle="dropdown"
         aria-expanded="false"
       >
-        {selectedPlatformId ? platformName : "Platforms"}
+        {platformId ? platformName : "Platforms"}
       </button>
       <ul className="dropdown-menu">
-        {selectedPlatformId && (
+        {platformId && (
           <li>
             <button
               className="dropdown-item"
               type="button"
-              onClick={() => onSelectPlatform(null)}
+              onClick={() => setPlatformId(undefined)}
             >
               Display All
             </button>
@@ -46,7 +43,7 @@ const PlatformSelector = ({
               <button
                 className="dropdown-item"
                 type="button"
-                onClick={() => onSelectPlatform(platform)}
+                onClick={() => setPlatformId(platform.id)}
               >
                 {platform.name}
               </button>
