@@ -5,7 +5,7 @@ import SearchInput from "../seach/SearchInput";
 
 const NavBar = () => {
   return (
-    <div className="d-flex align-items-center p-1 gap-3">
+    <div className="d-flex align-items-center p-1 gap-3 sticky-sm-top bg-body">
       <Link to={"/"}>
         <img src={logo} className="img-fluid" style={{ maxWidth: "60px" }} />
       </Link>

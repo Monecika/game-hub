@@ -1,3 +1,4 @@
+import BackToTopButton from "../components/backToTop/BackToTopButton";
 import SortSelector from "../components/sortSelector/SortSelector";
 import GameGrid from "../features/games/components/GameGrid";
 import GameHeading from "../features/games/components/GameHeading";
@@ -22,6 +23,7 @@ const HomePage = () => {
           <GameGrid />
         </div>
       </div>
+      <BackToTopButton />
     </div>
   );
 };

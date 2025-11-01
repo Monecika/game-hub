@@ -6,7 +6,10 @@ import "./ColorModeSwitch.css";
 const ThemeToggle = () => {
   const [darkMode, setDarkMode] = useState<boolean>(() => {
     const savedTheme = localStorage.getItem("theme");
-    return savedTheme === "dark";
+    if (savedTheme) {
+      return savedTheme === "dark";
+    }
+    return true;
   });
 
   useEffect(() => {
